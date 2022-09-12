@@ -1,7 +1,9 @@
 #!/bin/bash
 
 SERVER='localhost:8080'
-aContainer='abs234'
+USER='pavlos'
+APP_NAME='app_name'
+aContainer='mssql_2019'
 data='{
   "name": "pavlos"
   }'
@@ -11,7 +13,7 @@ function listServices() {
     --request 'GET' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Connection: close' \
-    "${SERVER}/services"
+    "${SERVER}/services?user=${USER}&app=${APP_NAME}"
   echo
 }
 
@@ -23,7 +25,7 @@ function getService() {
     --request 'GET' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Connection: close' \
-    "${SERVER}/service/${2}"
+    "${SERVER}/service/${2}?user=${USER}&app=${APP_NAME}"
   echo
 }
 
@@ -36,7 +38,7 @@ function postService() {
     --header 'Content-Type: application/json' \
     --header 'Connection: close' \
     --data "$1" \
-    "${SERVER}/service/${2}"
+    "${SERVER}/service/${2}?user=${USER}&app=${APP_NAME}"
   echo
 }
 
@@ -49,7 +51,7 @@ function deleteService() {
     --header 'Content-Type: application/json' \
     --header 'Connection: close' \
     --data "$1" \
-    "${SERVER}/service/${2}"
+    "${SERVER}/service/${2}?user=${USER}&app=${APP_NAME}"
   echo
 }
 
