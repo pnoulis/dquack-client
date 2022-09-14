@@ -3,9 +3,9 @@
 SERVER='localhost:8080'
 USER='pavlos'
 APP_NAME='app_name'
-aContainer='mssql_2019'
+aContainer='mssql_t2019'
 data='{
-  "name": "pavlos"
+  "custom_settings": "pavlos"
   }'
 
 function listServices() {
@@ -13,7 +13,7 @@ function listServices() {
     --request 'GET' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --header 'Connection: close' \
-    "${SERVER}/services?user=${USER}&app=${APP_NAME}"
+    "${SERVER}/service?user=${USER}&app=${APP_NAME}"
   echo
 }
 
